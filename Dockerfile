@@ -1,6 +1,6 @@
 FROM ruby:3.1.2-slim-bullseye
 
-RUN apt-get update -qq && apt-get install -y build-essential postgresql-client libpq-dev
+RUN apt-get update -qq && apt-get install -y build-essential postgresql-client libpq-dev libvips42
 
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app

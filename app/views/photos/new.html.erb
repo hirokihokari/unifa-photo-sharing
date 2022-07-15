@@ -1,1 +1,18 @@
-New Photo Page
+<h1>写真アップロード</h1>
+
+<%= form_tag '/photos', method: :post, multipart: true do %>
+  <%= render partial: 'common/errors', errors: @errors %>
+  <div>
+    <%= label_tag 'タイトル' %>
+    <%= text_field_tag :title, params[:title] %>
+  </div>
+  <div>
+    <%= label_tag '画像ファイル' %>
+    <%= file_field_tag :photo %>
+  </div>
+  <div>
+    <%= button_tag 'アップロード' %>
+  </div>
+<%- end %>
+
+<%= link_to 'キャンセル', photos_path %>

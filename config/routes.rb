@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :photos, only: %i(index new)
+  resources :photos, only: %i(index new create)
 
   root "photos#index"
 end
