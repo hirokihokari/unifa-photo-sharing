@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     @errors = []
+    user_id = params[:user_id]
+    password = params[:password]
+    user = User.find_by(user_id: user_id)
 
     if user&.authenticate(password)
       session[:user_id] = user.id
@@ -21,17 +24,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    session[:user_id] = nil
 
-  def user
-    User.find_by(user_id: user_id)
-  end
-
-  def user_id
-    params[:user_id]
-  end
-
-  def password
-    params[:password]
+    redirect_to '/login'
   end
 end

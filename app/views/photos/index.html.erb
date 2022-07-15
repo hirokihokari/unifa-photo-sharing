@@ -1,1 +1,7 @@
-Photos page
+<%= form_tag '/logout', method: :delete do %>
+  <%= button_tag 'ログアウト' %>
+<%- end %>
+
+<%= link_to '写真をアップロードする', new_photo_path %>
+
+<%= render 'photos/gallery', photos: @photos %>
