@@ -1,8 +1,12 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user
-
   def index
     @photos = current_user.photos.order(created_at: :desc)
+    @my_tweet_app_authorization_url =
+      'https://arcane-ravine-29792.herokuapp.com/oauth/authorize?' + {
+        response_type: 'code',
+        client_id: ENV['MY_TWEET_APP_CLIENT_ID'],
+        redirect_uri: oauth_callback_url,
+      }.to_query
   end
 
   def new

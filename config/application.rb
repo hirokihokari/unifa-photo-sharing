@@ -32,3 +32,7 @@ module UnifaPhotoSharing
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+Rails.application.routes.default_url_options = {
+  host: 'http://localhost:3000'
+}

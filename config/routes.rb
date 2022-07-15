@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: %i(index new create)
 
+  get '/oauth/callback', as: :oauth_callback
+
   root "photos#index"
 end

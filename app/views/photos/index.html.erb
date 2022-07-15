@@ -1,5 +1,11 @@
 <h1>写真一覧</h1>
 
-<%= link_to '写真をアップロードする', new_photo_path %>
+<div>
+  <%= link_to 'MyTweetAppと連携', @my_tweet_app_authorization_url %>
+</div>
+
+<div>
+  <%= link_to '写真をアップロードする', new_photo_path %>
+</div>
 
 <%= render 'photos/gallery', photos: @photos %>
