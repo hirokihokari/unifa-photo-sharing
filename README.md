@@ -5,10 +5,12 @@
 1. docker-compose up
 ```
 // プロジェクトディレクトリのルートで
-$ docker-compose up
+$ docker-compose up --build
 ```
 
-2. DBを作る
+2. DBを設定する
 ```
-$ docker-compose run --rm rails rails db:create
+$ docker-compose run --rm rails rails db:setup
+
+# seed => ユーザーID: UniTarou / パスワード: password
 ```
