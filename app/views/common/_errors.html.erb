@@ -1,0 +1,5 @@
+<% if @errors&.size&.>(0) %>
+  <ul>
+    <%= render partial: "common/error", collection: @errors %>
+  </ul>
+<%- end %>

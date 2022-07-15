@@ -1,1 +1,13 @@
-
+<h1>ログイン</h1>
+<%= form_tag '/login', method: :post do %>
+  <%= render partial: 'common/errors', errors: @errors %>
+  <div>
+    <%= label_tag 'ユーザーID' %>
+    <%= text_field_tag :user_id, params[:user_id] %>
+  </div>
+  <div>
+    <%= label_tag 'パスワード' %>
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+  <%= submit_tag 'ログインする' %>
+<%- end %>
