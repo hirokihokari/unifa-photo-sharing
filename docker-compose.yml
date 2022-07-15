@@ -1,0 +1,29 @@
+services:
+  rails:
+    build: ./
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      BUNDLE_PATH: /bundle/vendor
+    ports:
+      - "3000:3000"
+    volumes:
+      - ruby_gems:/bundle
+      - ./:/usr/src/app
+    tty: true
+    stdin_open: true
+
+  db:
+    image: postgres:13.3-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+  ruby_gems:
